@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.navbar{
+    background-color: orangered;
+    width: 192rem;
+    height: 10rem;
+}
