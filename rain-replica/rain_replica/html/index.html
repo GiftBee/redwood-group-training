@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang= "en">
+
+ <style>
+        *{
+    box-sizing: border-box;
+}
+
+
+.card:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15rem;
+    height: 15rem;
+    background-color: red;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+
+}
+.card:after{
+     content: "winter promo";
+     font-weight: 700;
+     color: white;
+     width: 3rem;
+     position: absolute;
+     top: 2.5rem;
+     left: 2rem;
+     transform: rotate(-45deg);
+
+}
+
+
+body{
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #333;
+    }
+/*typography*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100,300,700&family");
+html{
+    font-size: 62.5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.heading-1{
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: gray;
+}
+
+.heading-2{
+    font-size: 4rem;
+    font-weight: 700;
+    color:indigo;
+    background-color: green;
+    padding: 0.5rem 2.5rem;
+    border-radius: 1rem;
+    margin-left: 1.5rem;
+}
+
+.heading-3{
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: white;
+}
+.row-1,
+.row-2,
+.row-3,
+.row-4,
+.row-5{
+    grid-column: 2/ span 1;
+}
+.row-1{
+    grid-row: 3 / span 1;
+    background-color:lightblue;
+    
+}
+
+.row-2{
+    grid-row: 4 / span 1;
+    background-color: white;
+}
+.row-3{
+    
+    grid-row: 5 / span 1;
+    background-color: green;
+}
+.row-4{
+    
+    grid-row: 6 / span 1;
+    background-color: yellow;
+}
+.row-5{
+    
+    grid-row: 7 / span 1;
+    background-color:red;
+}
+
+.footer{
+    grid-row: 8 / span 1;
+    grid-column: 1 / -1;
+    background-color: white;
+
+    border-top: 0.5px solid gray;
+
+}
+
+footer_content{
+    width: 50%;
+    text-align: center;
+    margin-left: 30rem;
+}
+footer_lik{
+    color: indigo;
+
+}
+footer_items{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+footer_item{
+    margin: 0 1rem;
+}
+
+footer_text_text-version{
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: grey;
+    padding: 1.5rem;
+    width: 5rem;
+    height: 3rem;
+    border-radius: 1.6rem;
+    background-color: grey;
+    transform: translateX(35rem);
+    margin: 1.6rem;
+}
+
+/*layouts*/
+.layout{
+    display: grid;
+
+    grid-template-rows:[navbar-end hero-start] 25rem [hero-end content-start] repeat(
+        5,
+        35rem
+        )
+    [content-end footer-start] 12rem [footer-end];
+    
+    grid-template-columns: 1fr 80vw 1fr;
+    grid-row-gap: 1.6rem;
+    gap: 1.6rem;
+
+}
+.navbar{
+    grid-row: 1/ span 1;
+    grid-column: 1/-1;
+    /*background-color:white;*/
+}
+
+.hero{
+    grid-row: 2/ span 1;
+    grid-column: 1 / -1;
+    background-color: blue;
+    background-image: linear-gradient(
+        to right bottom), 
+        blue,indigo;
+
+}
+
+.heading-2{
+    font-size: 4rem;
+    color: blue;
+    background-color:white;
+    padding: 0.5rem 2rem;
+    margin: 0.5rem;
+    border-radius: 8rem;
+}
+
+.her_text{
+    margin-left: 2rem;
+    font-weight: 300;
+    color: white;
+}
+
+.col-1_2{
+    /*min-height: 15rem;*/
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+.container{
+    width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    border-top: 0.5px solid grey;
+}
+
+.card{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    background-color: darkblue;
+    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.16);
+    border-radius: 1.6rem;
+    overflow: hidden;
+}
+.card_img{
+    width: 12rem;
+    height: 15rem;
+}
+
+.card_front{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card_content{
+    display: flex;
+}
+
+.card_pricing{
+    color: #fff;
+}
+
+.card_price--now{
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin: -10.5rem 0;
+}
+
+.card_price{
+    font-size: 2rem;
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+
+.navbar-links{
+    position: relative;
+    left:70%;
+    top: -50%
+
+}
+.navbar_user{
+    position: relative;
+    left:18%;
+    top: -20%;
+}
+
+.her_img{
+    max-width: 100%;
+    height: 25rem;
+}
+
+
+    </style>
+
+
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--<link rel="stylesheet" type="text/css" href="style.css" >-->
+        <title>Rain Replica</title>
+    </head>
+    <body>
+        <div class="layout">
+         <!-- <div class="container">-->
+          
+           <nav class="navbar">
+               <h1 class="heading-1">rain</h1>
+
+               <div class="navbar-links">
+                   <ul class="navbar-items">
+                       <li class="navbar-item">
+                           <a href="#" class="navbar_link">activate SIM</a>
+                       </li>
+                       <li class="navbar_item">
+                           <a href="#" class="navbar_link">support</a>
+                       </li>
+                   </ul>
+
+                   <ul class="navbar_user">
+                       <li class="navbar_user--item">
+                           <a href="#" class="navbar_user--link">sign in</a>
+                       </li>
+                       <li class="navbar_user--item">
+                           <a href="#" class="navbar_user--link">shop</a>
+                       </li>
+                   </ul>
+               </div>
+           </nav>
+
+            <div class="hero">
+                <div class="container">
+                    <div class="col-1_1">
+                        <h2 class="heading-2">upgrade to 5G</h2>
+                        <h2 class="heading-2">for less this winter</h2>
+                        <p class="her_text">Ts & Cs apply.</p>
+                    </div>
+                    <div class="col-1_1">
+                        <img src="../img/hero.png" alt="Hero image" class="hero_img" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-1">
+                <div class="col-1_2">
+                    <div class="card">
+                        <div class="card_flip">
+                            <div class="card_front">
+                                <h3 class="heading-3 card_header">Unlimited home 5G standard</h3>
+                                <div class="card_content">
+                                    <img src="../img/card-1.png" alt="card 1 image" class="card_img" />
+                                    <p class="card_pricing">
+                                        <span class="card_price">R699 a month</span>
+                                        <br />
+                                        <span class="card_price--now">now R479</span>
+                                        <br />
+                                        <span clas="card_price--term">for the first 3 months</span>
+                                    </p>
+                                </div>
+                                <a href="#" class="btn">view</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-1_2">
+                    <div class="card">
+                        <div class="card_flip">
+                            <div class="card_front">
+                                <h3 class="heading-3 card_header">Unlimited home 5G standard</h3>
+                                <div class="card_content">
+                                    <img src="../img/card-1.png" alt="card 1 image" class="card_img" />
+                                    <p class="card_pricing">
+                                        <span class="card_price">R999 a month</span>
+                                        <br />
+                                        <span class="card_price--now">now R699</span>
+                                        <br />
+                                        <span clas="card_price--term">for the first 3 months</span>
+                                    </p>
+                                </div>
+                                <a href="#" class="btn">view</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1_1">
+                        <div class="card">
+                            <div class="card_flip">
+                                <div class="card_front">
+                                    <h3 class="heading-3 card_header">19 hours unlimited </h3>
+                                    <div class="card_content">
+                                        <img src="../img/card-2.png" alt="card 1 image" class="card_img" />
+                                        <p class="card_pricing">
+                                            <span class="card_price">off-peak for any device</span>
+                                            <br />
+                                            <span class="card_price--now">R250</span>
+                                            <br />
+                                            <span clas="card_price--term">month-to-month</span>
+                                        </p>
+                                    </div>
+                                    <a href="#" class="btn">view</a>
+                                </div>
+                            </div>
+                        </div>
+            <!--<div class="row-2">
+                <div class="col-1_3">
+                    <div class="card">
+                        <div class="card_flip">
+                            <div class="card_front">
+                                <h3 class="heading-3 card_header">Unlimited home 5G standard</h3>
+                                <div class="card_content">
+                                    <div class="img"
+                                    <p class="card_pricing">
+                                        <span class="card_price">R699 a month</span>
+                                        <br />
+                                        <span class="card_price--now">now R479</span>
+                                        <br />
+                                        <span clas="card_price--term">for the first 3 months</span>
+                                    </p>
+                                </div>
+                                <a href="#" class="btn">view</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1_3">
+                    <div class="card">
+                        <div class="card_flip">
+                            <div class="card_front">
+                                <h3 class="heading-3 card_header">Unlimited home 5G standard</h3>
+                                <div class="card_content">
+                                   
+                                    <p class="card_pricing">
+                                        <span class="card_price">R999 a month</span>
+                                        <br />
+                                        <span class="card_price--now">now R699</span>
+                                        <br />
+                                        <span clas="card_price--term">for the first 3 months</span>
+                                    </p>
+                                </div>
+                                <a href="#" class="btn">view</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1_3">
+                        <div class="card">
+                            <div class="card_flip">
+                                <div class="card_front">
+                                    <h3 class="heading-3 card_header">Unlimited home 5G standard</h3>
+                                    <div class="card_content">
+                                      
+                                        <p class="card_pricing">
+                                            <span class="card_price">R699 a month</span>
+                                            <br />
+                                            <span class="card_price--now">now R479</span>
+                                            <br />
+                                            <span clas="card_price--term">for the first 3 months</span>
+                                        </p>
+                                    </div>
+                                    <a href="#" class="btn">view</a>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            <div class="row-3">
+                <div class="col-1_3">
+                    <div class="card">
+                        <div class="card_flip">
+                            <div class="card_front">
+                                <h3 class="heading-3 card_header">Unlimited home 5G standard</h3>
+                                <div class="card_content">
+                                    
+                                    <p class="card_pricing">
+                                        <span class="card_price">R699 a month</span>
+                                        <br />
+                                        <span class="card_price--now">now R479</span>
+                                        <br />
+                                        <span clas="card_price--term">for the first 3 months</span>
+                                    </p>
+                                </div>
+                                <a href="#" class="btn">view</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1_3">
+                    <div class="card">
+                        <div class="card_flip">
+                            <div class="card_front">
+                                <h3 class="heading-3 card_header">Unlimited home 5G standard</h3>
+                                <div class="card_content">
+                                  
+                                    <p class="card_pricing">
+                                        <span class="card_price">R999 a month</span>
+                                        <br />
+                                        <span class="card_price--now">now R699</span>
+                                        <br />
+                                        <span clas="card_price--term">for the first 3 months</span>
+                                    </p>
+                                </div>
+                                <a href="#" class="btn">view</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1_3">
+                        <div class="card">
+                            <div class="card_flip">
+                                <div class="card_front">
+                                    <h3 class="heading-3 card_header">Unlimited home 5G standard</h3>
+                                    <div class="card_content">
+                                      
+                                        <p class="card_pricing">
+                                            <span class="card_price">R699 a month</span>
+                                            <br />
+                                            <span class="card_price--now">now R479</span>
+                                            <br />
+                                            <span clas="card_price--term">for the first 3 months</span>
+                                        </p>
+                                    </div>
+                                    <a href="#" class="btn">view</a>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            <div class="row-4">
+                <div class="col-1_3">
+                    <div class="card">
+                        <div class="card_flip">
+                            <div class="card_front">
+                                <h3 class="heading-3 card_header">Unlimited home 5G standard</h3>
+                                <div class="card_content">
+                                    
+                                    <p class="card_pricing">
+                                        <span class="card_price">R699 a month</span>
+                                        <br />
+                                        <span class="card_price--now">now R479</span>
+                                        <br />
+                                        <span clas="card_price--term">for the first 3 months</span>
+                                    </p>
+                                </div>
+                                <a href="#" class="btn">view</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1_3">
+                    <div class="card">
+                        <div class="card_flip">
+                            <div class="card_front">
+                                <h3 class="heading-3 card_header">Unlimited home 5G standard</h3>
+                                <div class="card_content">
+                                    
+                                    <p class="card_pricing">
+                                        <span class="card_price">R999 a month</span>
+                                        <br />
+                                        <span class="card_price--now">now R699</span>
+                                        <br />
+                                        <span clas="card_price--term">for the first 3 months</span>
+                                    </p>
+                                </div>
+                                <a href="#" class="btn">view</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1_3">
+                        <div class="card">
+                            <div class="card_flip">
+                                <div class="card_front">
+                                    <h3 class="heading-3 card_header">Unlimited home 5G standard</h3>
+                                    <div class="card_content">
+                                       
+                                        <p class="card_pricing">
+                                            <span class="card_price">R699 a month</span>
+                                            <br />
+                                            <span class="card_price--now">now R479</span>
+                                            <br />
+                                            <span clas="card_price--term">for the first 3 months</span>
+                                        </p>
+                                    </div>
+                                    <a href="#" class="btn">view</a>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            <div class="row-5"></div>
+        -->
+            <div class="footer">
+                <div class="container">
+                    <h1 class="heading-1">rain</h1>
+                    <div class="footer_content">
+                        <ul class="footer_items">
+                            <li class="footer_item">
+                                <a href="#" class="footer_link">terms and conditions</a>
+                            </li>
+                            <li class="footer_item">
+                                <a href="#" class="footer_link">&copy; 2021 rain</a>
+                            </li>
+                        </ul>
+                        <p class="footer_text-version">3.8.7</p>
+                        <p class="footer_copyright"> This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+                             </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+         
+    </body>
+</html>
